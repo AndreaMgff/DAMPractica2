@@ -6,22 +6,22 @@ namespace DAMPractica2;
 /// </summary>
 public class TicTacToe
 {
-    private int turno ;
-    public int[,] tablero; 
-    
-/// <summary>
-/// Constructor que inicializa el tablero vacío y el turno a 0
-/// </summary>
+    private int turno;
+    public int[,] tablero;
+
+    /// <summary>
+    /// Constructor que inicializa el tablero vacío y el turno a 0
+    /// </summary>
     public TicTacToe()
     {
         Reiniciar();
     }
-/// <summary>
-/// Realiza jugadas
-/// </summary>
-/// <param name="c">Columna de la jugada</param>
-/// <param name="f">Fila de la jugada</param>
-/// <returns>Número de turno o -1 si la jugada es invalida</returns>
+    /// <summary>
+    /// Realiza jugadas
+    /// </summary>
+    /// <param name="c">Columna de la jugada</param>
+    /// <param name="f">Fila de la jugada</param>
+    /// <returns>Número de turno o -1 si la jugada es invalida</returns>
     public int jugada(int c, int f)
     {
         if (tablero[c, f] == 0)
@@ -44,10 +44,10 @@ public class TicTacToe
 
         return turno;
     }
-/// <summary>
-/// Determina que jugador ha ganado si es que algún jugador ha ganado
-/// </summary>
-/// <returns>Devuelve el jugador ganador 1 o 2 y 0 si no hay ganador</returns>
+    /// <summary>
+    /// Determina que jugador ha ganado si es que algún jugador ha ganado
+    /// </summary>
+    /// <returns>Devuelve el jugador ganador 1 o 2 y 0 si no hay ganador</returns>
     public int Ganador()
     {
         if (turno % 2 == 0)
@@ -66,7 +66,8 @@ public class TicTacToe
             if (PartidaFinalizada(1))
             {
                 return 2;
-            }else
+            }
+            else
             {
                 return 0;
             }
@@ -112,13 +113,14 @@ public class TicTacToe
         return false;
     }
     /// <summary>
-    /// Reinicia el tablero
+    /// Metodo que comprueba si no hay espacio en el tablero(se pulsaron todos los botones) y no hay ganador, e indica que es empate
     /// </summary>
-     public bool PartidaFinalizadaSinGanador()//Metodo qeu comprueba si no hay espacio en el tablero(se pulsaron todos los botones) y no hay ganador, e indica que es empate
+    /// <returns></returns>
+    public bool PartidaFinalizadaSinGanador()
     {
-        for (int i = 0; i< 3; i++)
+        for (int i = 0; i < 3; i++)
         {
-            for (int j = 0; j< 3; j++)
+            for (int j = 0; j < 3; j++)
             {
                 if (tablero[i, j] == 0)
                 {
@@ -128,6 +130,9 @@ public class TicTacToe
         }
         return true;
     }
+    /// <summary>
+    /// Reinicia el tablero
+    /// </summary>
     public void Reiniciar()
     {
         turno = 0;
